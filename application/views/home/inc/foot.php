@@ -30,34 +30,64 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <div class="footer-col">
-                    <h3>Get in touch</h3>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Name...">
+                <?php if ($active != "support") { ?>
+                    <div class="footer-col">
+                        <h3>Get in touch</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Name...">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email...">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Subject...">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" placeholder="Massage..." rows="7"></textarea>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-lg theme-btn-color">Send massege</button>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Email...">
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Subject...">
-                            </div>
-                            <div class="col-md-12">
-                                <textarea class="form-control" placeholder="Massage..." rows="7"></textarea>
-                            </div>
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-lg theme-btn-color">Send massege</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                <?php } else { ?>
+                    <style>
+                        #map {
+                            width: 100%;
+                            height: 400px;
+                            background-color: grey;
+                        }
+                    </style>
+                    <div id="map"></div>
+                    <script>
+                        function initMap() {
+                            var c = {
+                                lat: 6.6300393,
+                                lng: 3.370273
+                            };
+                            var map = new google.maps.Map(
+                                document.getElementById('map'), {
+                                    zoom: 15,
+                                    center: c
+                                });
+                            var marker = new google.maps.Marker({
+                                position: c,
+                                map: map
+                            });
+                        }
+                    </script>
+                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe1xG5fyId7xczyUtjRNDrgqJRs-sJwsk&callback=initMap">
+                    </script>
+                <?php } ?>
             </div>
         </div>
         <div class="space-70"></div>
         <div class="row">
             <div class="col-md-12 text-center footer-bottom">
-                <a href="<?=base_url()?>"> <img src="<?=base_url("assets/img/logo.png")?>" class="img-logo" alt=""></a>
+                <a href="<?= base_url() ?>"> <img src="<?= base_url("assets/img/logo.png") ?>" class="img-logo" alt=""></a>
                 <div class="space-20"></div>
                 <span>&copy;<?= date("Y") ?>. All Right Reserved. powered by <a target="_blank" href="http://schoolville.com">Schoolville Ltd.</a></span>
             </div>
@@ -65,17 +95,8 @@
     </div>
 </div>
 <a href="#" class="scrollToTop"><i class="icon ion-ios-arrow-dropup"></i></a>
-<script src="<?=base_url("assets/js/plugins/plugins.js")?>"></script>
-<script src="<?=base_url("assets/js/app.js")?>"></script>
-<script>
-    var typed = new Typed('#typed', {
-        stringsElement: '#typed-strings',
-        loop: true,
-        typeSpeed: 70,
-        backDelay: 1000,
-        shuffle: true
-    });
-</script>
+<script src="<?= base_url("assets/js/plugins/plugins.js") ?>"></script>
+<script src="<?= base_url("assets/js/app.js") ?>"></script>
 </body>
 
 </html>

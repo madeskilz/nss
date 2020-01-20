@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$route['default_controller'] = 'maintenance';
+$route['default_controller'] = 'home';
 $route['about'] = 'home/about';
 $route['support'] = 'home/support';
 $route['login'] = 'auth/login';

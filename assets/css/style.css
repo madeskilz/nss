@@ -2041,7 +2041,7 @@ body.fullscreen, html, .boxed-wrapper {
   .hero-fullscreen .type-img {
     position: relative;
     right: 15px;
-    bottom: -85px;
+    bottom: -125px;
     opacity: 1; }
   .hero-fullscreen .container, .hero-fullscreen .container-fluid {
     height: 100%;

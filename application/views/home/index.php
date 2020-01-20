@@ -110,7 +110,7 @@
         <div class="col-md-4">
             <div class="services-box">
                 <i class="icon ion-ios-person"></i>
-                <h4>Security Consultancy</h4>
+                <h4>Security Consultancy & Training</h4>
             </div>
         </div>
         <div class="col-md-4">
@@ -131,7 +131,7 @@
 <div class="cta-bg">
     <div class="container text-center">
         <h3>What are you waiting for?
-            <a href="#" class="btn btn-lg btn-white btn-radius my-3">Contact Now</a>
+            <a href="<?=base_url("support")?>" class="btn btn-lg btn-white btn-radius my-3">Contact Now</a>
         </h3>
     </div>
 </div>
@@ -154,3 +154,12 @@
 
 <?php $this->load->view("home/inc/partners") ?>
 <?php $this->load->view("home/inc/foot") ?>
+<script>
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        loop: true,
+        typeSpeed: 70,
+        backDelay: 1000,
+        shuffle: true
+    });
+</script>
