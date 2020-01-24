@@ -26,6 +26,8 @@ class Admin extends CI_Controller
     {
         $p["active"] = "home";
         $p["title"] = "Admin Dashboard";
+        $p["products"] = $this->db->get("products")->result();
+        $p["services"] = $this->db->get("services")->result();
         $this->load->view('admin/index', $p);
     }
     public function about()
@@ -34,6 +36,7 @@ class Admin extends CI_Controller
             $this->update_about();
         }
         $p['active'] = "about";
+        $p['sub_active'] = "about";
         $p['title'] = "About";
         $abt = $this->db->get("about",1)->row();
         if ($abt !== null) {
@@ -77,39 +80,48 @@ class Admin extends CI_Controller
             };
         }
     }
-    public function news()
+    public function services()
     {
-        $p["active"] = "news";
-        $p["title"] = "News & Updates";
-        $p["updates"] = $this->db->get("news")->result();
-        $this->load->view('admin/news', $p);
+        $p["active"] = "services";
+        $p["sub_active"] = "all";
+        $p["title"] = "All Services";
+        $p["services"] = $this->db->get("services")->result();
+        $this->load->view('admin/services', $p);
     }
-    public function add_news()
+    public function products()
+    {
+        $p["active"] = "products";
+        $p["sub_active"] = "all";
+        $p["title"] = "All Products";
+        $p["products"] = $this->db->get("products")->result();
+        $this->load->view('admin/products', $p);
+    }
+    public function add_product()
     {
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-            $this->new_update();
+            $this->add_product_fn();
         }
-        $p["active"] = "news";
-        $p["title"] = "Add News";
-        $this->load->view('admin/add-news', $p);
+        $p["active"] = "products";
+        $p["sub_active"] = "add";
+        $p["title"] = "Add Product";
+        $this->load->view('admin/add_product', $p);
     }
-    private function new_update()
+    private function add_product_fn()
     {
-        $data = array();
-        $data['title'] = trim($this->input->post('title'));
+        $data['name'] = trim($this->input->post('name'));
         $data['details'] = trim($this->input->post('details'));
-        if ($this->db->insert("news", $data)) {
-            $this->session->set_flashdata('success_msg', "News update added successfully");
-            return redirect("admin/news");
+        if ($this->db->insert("products", $data)) {
+            $this->session->set_flashdata('success_msg', "Product added successfully");
+            return redirect("admin/products");
         } else {
-            $this->session->set_flashdata('error_msg', "News update not added contact admin if error persists");
-            return redirect("admin/add_news");
+            $this->session->set_flashdata('error_msg', "Product not added contact admin if error persists");
+            return redirect("admin/add_product");
         }
     }
-    public function edit_news($id)
+    public function edit_product($id)
     {
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-            $this->update_news($id);
+            $this->edit_product_fn($id);
         }
         $this->db->where("id", $id);
         $news = $p["news"] = $this->db->get("news", 1)->row();
@@ -120,6 +132,21 @@ class Admin extends CI_Controller
         $p["active"] = "news";
         $p["title"] = "Edit News";
         $this->load->view('admin/edit-news', $p);
+    }
+    private function edit_product_fn($id)
+    {
+        $data = array();
+        $data['title'] = trim($this->input->post('title'));
+        $data['details'] = trim($this->input->post('details'));
+        $this->db->where("id", $id);
+        $this->db->set($data);
+        if ($this->db->update("news", $data)) {
+            $this->session->set_flashdata('success_msg', "News updated successfully");
+            return redirect("admin/news");
+        } else {
+            $this->session->set_flashdata('error_msg', "News not updated contact admin if error persists");
+            return redirect("admin/edit_news");
+        }
     }
     public function remove_news($id)
     {
@@ -133,21 +160,6 @@ class Admin extends CI_Controller
             $this->db->delete("news");
             $this->session->set_flashdata('success_msg', "News deleted successfully");
             return redirect("admin/news");
-        }
-    }
-    private function update_news($id)
-    {
-        $data = array();
-        $data['title'] = trim($this->input->post('title'));
-        $data['details'] = trim($this->input->post('details'));
-        $this->db->where("id", $id);
-        $this->db->set($data);
-        if ($this->db->update("news", $data)) {
-            $this->session->set_flashdata('success_msg', "News updated successfully");
-            return redirect("admin/news");
-        } else {
-            $this->session->set_flashdata('error_msg', "News not updated contact admin if error persists");
-            return redirect("admin/edit_news");
         }
     }
     public function gallery()

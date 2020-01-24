@@ -1,9 +1,10 @@
 </div>
 </div>
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 </div>
 </div>
 <script type="text/javascript" src="<?= base_url("adminassets/scripts/main.js") ?>"></script>
+<script type="text/javascript" src="<?= base_url("adminassets/scripts/jquery.js") ?>"></script>
+<?php $this->load->view("inc/msg") ?>
 </body>
 
 </html>

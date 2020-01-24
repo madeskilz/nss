@@ -1,34 +1,6 @@
 <?php $this->load->view("admin/inc/header") ?>
 <?php $this->load->view("admin/inc/page-top") ?>
 <div class="row">
-    <div class="col-md-6">
-        <div class="card mb-3 widget-content bg-midnight-bloom">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Products</div>
-                    <div class="widget-subheading">Total products count</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span><?=count($products)?></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card mb-3 widget-content bg-arielle-smile">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Services</div>
-                    <div class="widget-subheading">Total services offered</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span><?= count($services) ?></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="card-header">All Products

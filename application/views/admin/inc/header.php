@@ -57,7 +57,6 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                             <i class="fa fa-user fa-2x"></i>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -121,32 +120,32 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading"></li>
                             <li>
-                                <a href="<?= base_url("admin") ?>" class="mm-active">
+                                <a href="<?= base_url("admin") ?>" class="<?= ($active == "home") ? "mm-active" : "" ?>">
                                     <i class="metismenu-icon pe-7s-note2"></i>
                                     Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="<?= ($active == "about") ? "mm-active" : "" ?>">
                                     <i class="metismenu-icon pe-7s-bookmarks"></i>
                                     About
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
-                                <ul>
+                                <ul class="<?= ($active == "about") ? "mm-collapse mm-show" : "" ?>">
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="<?= base_url("admin/contact") ?>" class="<?= ($active == "about" && $sub_active == "contact") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon"></i>
                                             Contact
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="<?= base_url("admin/about") ?>" class="<?= ($active == "about" && $sub_active == "about") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon">
                                             </i>About Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-icons.html">
+                                        <a href="<?= base_url("admin/values") ?>" class="<?= ($active == "about" && $sub_active == "values") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon">
                                             </i>Our Values
                                         </a>
@@ -154,20 +153,20 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="<?= ($active == "services") ? "mm-active" : "" ?>">
                                     <i class="metismenu-icon pe-7s-magic-wand"></i>
                                     Service
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
-                                <ul>
+                                <ul class="<?= ($active == "services") ? "mm-collapse mm-show" : "" ?>">
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="<?= base_url("admin/services") ?>" class="<?= ($active == "services" && $sub_active == "all") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon"></i>
                                             All Services
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="<?= base_url("admin/add_service") ?>" class="<?= ($active == "services" && $sub_active == "add") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon">
                                             </i>Add New Service
                                         </a>
@@ -175,22 +174,37 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="<?= ($active == "products") ? "mm-active" : "" ?>">
                                     <i class="metismenu-icon pe-7s-paint-bucket"></i>
                                     Products
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
-                                <ul>
+                                <ul class="<?= ($active == "products") ? "mm-collapse mm-show" : "" ?>">
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="<?= base_url("admin/products") ?>" class="<?= ($active == "products" && $sub_active == "all") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon"></i>
                                             All Products
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="<?= base_url("admin/add_product") ?>" class="<?= ($active == "products" && $sub_active == "add") ? "mm-active" : "" ?>">
                                             <i class="metismenu-icon">
                                             </i>Add New Product
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="<?= ($active == "settings") ? "mm-active" : "" ?>">
+                                    <i class="metismenu-icon pe-7s-settings"></i>
+                                    Settings
+                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                </a>
+                                <ul class="<?= ($active == "settings") ? "mm-collapse mm-show" : "" ?>">
+                                    <li>
+                                        <a href="<?= base_url("admin/settings") ?>" class="<?= ($active == "settings" && $sub_active == "all") ? "mm-active" : "" ?>">
+                                            <i class="metismenu-icon"></i>
+                                            General Settings
                                         </a>
                                     </li>
                                 </ul>
